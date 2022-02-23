@@ -10,7 +10,12 @@
 #'
 #' @noRd
 
-rss_plt_gen <- function(data){
+rss_plt_gen <- function(data,search){
+  data <- data %>% dplyr::mutate(
+    AllText = stringr::str_to_lower(paste(.data$title,.data$summary))
+  ) %>%
+    dplyr::filter(stringr::str_detect(.data$AllText,stringr::str_to_lower(search)))
+  
   colours <- c(
     "Positive" = "#4b5320",
     "Negative" = "#D70040",

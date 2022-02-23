@@ -10,7 +10,12 @@
 #'
 #' @noRd
 
-rss_tbl_gen <- function(data) {
+rss_tbl_gen <- function(data,search) {
+  data <- data %>% dplyr::mutate(
+    AllText = stringr::str_to_lower(paste(.data$title,.data$summary))
+  ) %>%
+    dplyr::filter(stringr::str_detect(.data$AllText,stringr::str_to_lower(search)))
+  
   rss_tbl <-
     data %>%
     dplyr::mutate(

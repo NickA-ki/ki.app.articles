@@ -1,0 +1,20 @@
+Package: ki.app.articles.dev
+Title: PKG_TITLE
+Version: 0.0.0.9000
+Authors@R: person('Nick', 'Aristidou', email = 'nick.aristidou@ki-insurance.COM', role = c('cre', 'aut'))
+Description: PKG_DESC.
+License: What license is it under?
+Imports: 
+    config (>= 0.3.1),
+    dplyr,
+    DT,
+    golem (>= 0.3.1),
+    lubridate,
+    plotly,
+    RSQLite,
+    shiny (>= 1.7.1),
+    thinkr,
+    waiter
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2

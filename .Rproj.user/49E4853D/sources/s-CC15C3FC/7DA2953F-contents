@@ -1,0 +1,128 @@
+$radius: 10px;
+$distance: 30px;
+$convex_font: "Open Sans";
+
+@import url("https://fonts.googleapis.com/css?family=Open%20Sans:600,400%7CUnivia%20Pro%20Light,%20Helvetica%20Neue,%20Helvetica,%20Segoe%20UI,%20Arial,%20sans-serif:400&display=swap&ver=5.7.1");
+
+@mixin rounded-corners {
+  border-radius: $radius;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 300px 300px;
+  grid-template-columns: 300px 300px;
+  grid-gap: 0px;
+  background-color: #fff;
+  color: #444;
+  margin: 50px;
+  justify-content: center;
+}
+
+.box {
+  background-color: black;
+  color: #fff;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+  transition: all 550ms;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &.lt {
+    border-radius: $radius 0 0 0;
+
+    &:hover {
+      @include rounded-corners;
+      transform:
+        translateY(-$distance)
+        translateX(-$distance);
+    }
+  }
+
+  &.rt {
+    border-radius: 0 $radius 0 0;
+
+    &:hover {
+      @include rounded-corners;
+      transform:
+        translateY(-$distance)
+        translateX($distance);
+    }
+  }
+
+  &.rb {
+    border-radius: 0 0 $radius 0;
+
+    &:hover {
+      @include rounded-corners;
+      transform:
+        translateY($distance)
+        translateX($distance);
+    }
+  }
+
+  &.lb {
+    border-radius: 0 0 0 $radius;
+
+    &:hover {
+      @include rounded-corners;
+      transform:
+        translateY($distance)
+        translateX(-$distance);
+    }
+  }
+}
+
+.vertical {
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+}
+
+
+.centered {
+margin-top:0;
+margin-right:auto;
+margin-bottom:0;
+margin-left:auto;
+}
+
+body {
+  font-family: $convex_font, sans-serif;
+  background-color: white;
+}
+
+.chart-div {
+  background-color: white;
+  border-radius: $radius;
+  padding: 15px;
+  border-style: solid;
+  border-width: thin;
+  border-color: #5D6767;
+  box-shadow: 2px 2px 2px 2px lightgrey;
+
+}
+
+.navbar {
+    background-color: black !important;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+  font-family: $convex_font, sans-serif;
+  background-color: #e63b20 !important;
+  color: white !important;
+}
+
